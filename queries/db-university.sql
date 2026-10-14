@@ -25,5 +25,9 @@ AND hour > '14:00:00';*/
 FROM degrees
 WHERE `level` = 'magistrale';*/
 /* Da quanti dipartimenti è composta l'università? */
+/*SELECT *
+FROM departments;*/
+/* Quanti sono gli insegnanti che non hanno un numero di telefono? */
 SELECT *
-FROM departments;
+FROM teachers
+WHERE phone IS NULL;
