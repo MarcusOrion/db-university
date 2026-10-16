@@ -11,10 +11,18 @@ JOIN departments
 ON courses.degree_id = departments.id
 WHERE departments.name = 'Dipartimento di Neuroscienze'*/
 -- Selezionare tutti i corsi in cui insegna Fulvio Amato --
-SELECT courses.name, teachers.name, teachers.surname
+/*SELECT courses.name, teachers.name, teachers.surname
 FROM courses
 JOIN course_teacher
 ON courses.id = course_teacher.course_id
 JOIN teachers
 ON course_teacher.teacher_id = teachers.id
-WHERE teachers.name = 'Fulvio' AND teachers.surname = 'Amato'
+WHERE teachers.name = 'Fulvio' AND teachers.surname = 'Amato'*/
+-- Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome --
+SELECT students.surname AS student_surname, students.name AS student_name, degrees.*, departments.name AS deparment_name
+FROM students
+JOIN degrees
+ON students.degree_id  = degrees.id
+JOIN departments
+ON degrees.department_id = departments.id
+ORDER BY students.surname ASC, students.name ASC;
